@@ -1,0 +1,62 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>Job Market</title>
+    </head>
+
+    <body>
+        <div class="animate-crossfade bg-gradient-to-r from-[#eaf8f5] to-transparent min-h-screen py-20  overflow-y-clip">
+                
+            <div class="bg-white w-fit mx-auto p-10 shadow-xl rounded-2xl translate-x-0 duration-500">
+
+                <form class="">
+
+                    <h2 class=" text-gray-600 text-4xl text-center">Login to Your Account</h2>
+
+                    <div class="mt-10">
+
+                        <label htmlFor="email" class="block text-2xl mb-3">Email</label>
+
+                        <input type="email" name="email" class="block bg-[#18debb] bg-opacity-20 w-96 rounded-xl px-3 py-2 focus:outline-none placeholder:text-gray-400" placeholder="example@example.com"  />
+
+                    </div>
+
+
+                    <div class="mt-5">
+
+                        <label htmlFor="password" class="block text-2xl mb-3">Password</label>
+
+                        <input type="password" name="password" class="block bg-[#18debb] bg-opacity-20 w-96 rounded-xl px-3 py-2 focus:outline-none placeholder:text-gray-400" placeholder="********" />
+
+                    </div>
+
+            
+                    <div class="mt-10 w-fit mx-auto">
+                        <button type="submit" class="px-16 py-2 rounded-2xl border-2 border-[#397f77] text-[#397f77] text-2xl hover:border-white hover:text-white hover:bg-[#18debb] duration-300">Login</button>
+                    </div>
+
+
+                    <h2 class="mt-10 text-center w-full">Don't have any account? <Link to="/signup"><b class=" text-[#397f77] hover:underline duration-300">Sign Up</b></Link></h2>
+
+                    <button class="mt-10 text-[#397f77] font-semibold w-full text-center text-xl hover:-translate-x-5 duration-300">&#x2190; Go Back</button>
+
+                    
+
+
+                </form>
+                
+                
+            </div>
+
+
+        </div>
+
+
+    </body>
+</html>

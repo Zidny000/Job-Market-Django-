@@ -1,0 +1,112 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <script src="https://cdn.tailwindcss.com"></script>
+
+        <title>Job Market</title>
+    </head>
+
+    <body>
+        <nav class="lg:mx-10 md:mx-10 sm:mx-2 py-3 fixed z-40 bg-white min-w-screen left-0 right-0 top-2 rounded-2xl shadow-lg text-gray-600">
+            <div class="flex flex-cols-8 w-11/12 mx-auto justify-between">
+             
+
+                <div class=" lg:col-span-2 md:col-span-3 sm:col-span-3 h-fit my-auto">
+                    <a href="#"> <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="w-20" /> </a>
+                </div>
+
+                <div class=" flex col-span-4 block h-fit my-auto w-fit mx-auto ">
+                    <ul class="block font-medium ml-16">
+                        <li class=" inline-block mr-8">
+                            <a href="#">
+                                <button class="text-xl">Home</button>
+                            </a>
+                        </li>
+
+                        <li class=" inline-block mr-8">
+                            <a href="#"></a>
+                                <button class="relative peer text-xl">Job Posts</button>
+                            </a>
+                        </li>
+
+
+                        <li class=" inline-block mr-8">
+                            
+                            <button class="relative peer text-xl">Profile</button>
+                            
+                        </li>
+
+                        
+                    </ul>
+                </div>
+
+                <div class="flex lg:col-span-3 md:col-span-5 sm:col-span-5">
+
+                    <div class=" h-fit my-auto lg:block md:hidden sm:hidden">
+                        <span class=" inline-block align-middle w-full ml-10 mr-auto">
+
+                                <!-- <div class="w-fit">
+                                    <div class=" relative peer">
+
+
+                                        <div class="inline-block align-middle w-[40px] h-[40px] mx-auto rounded-full">
+                                            <img src="#" alt="" class=" h-full w-full rounded-full object-cover"/>
+                                        </div>
+
+                                    </div>
+
+                            
+                                
+                                    <div class="absolute hidden peer-hover:block hover:block bg-white drop-shadow-lg text-lg py-2 rounded-2xl">
+                                            <ul>
+                                            <li class="block hover:bg-[#18debb] hover:bg-opacity-30">
+                                                <a href="#"><h2 class="px-5 py-3">Profile</h2></a>
+                                            </li>
+                                            <li class=" block hover:bg-[#18debb] hover:bg-opacity-30">
+                                                <a href="#"><h2 class="px-5 py-3">Account</h2></a>
+                                            </li>
+
+                                            <li class=" block  hover:bg-[#18debb] hover:bg-opacity-30">
+                                                <button class="px-5 py-3">Logout</button>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                
+                                </div> -->
+
+                                
+
+                                <div class="text-lg text-[#397f77] w-fit mx-auto">
+
+                                    <span class=" inline-block">
+                                        <a href="#"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Login</h2></a>
+                                    </span>
+
+                                    <!-- <span class=" inline-block mx-1">/</span>
+
+                                    <span class=" inline-block">
+                                        <a href="#"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Sign Up</h2></a>
+                                    </span> -->
+
+                                </div>
+                
+                        </span>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+        <div class="px-6 py-6">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    </body>
+</html>
