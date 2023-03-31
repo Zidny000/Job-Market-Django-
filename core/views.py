@@ -10,3 +10,12 @@ def login(request):
 
 def signup(request):
     return render(request,'core/signup.html')
+
+def jobpost(request):
+    return render(request,'core/jobpost.html')
+
+def profile(request):
+    return render(request,'core/profile.html')
+
+def jobdetails(request):
+    return render(request,'core/jobdetails.html')

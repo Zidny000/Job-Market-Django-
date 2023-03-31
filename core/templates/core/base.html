@@ -8,6 +8,15 @@
         <script src="https://cdn.tailwindcss.com"></script>
 
         <title>Job Market</title>
+        <!-- <style>
+            input{
+                border: 3px solid #ccc;
+            }
+            input[type=text]:focus {
+                border: 0px solid #555;
+                outline: none;
+            }
+        </style> -->
     </head>
 
     <body>
@@ -22,21 +31,22 @@
                 <div class=" flex col-span-4 block h-fit my-auto w-fit mx-auto ">
                     <ul class="block font-medium ml-16">
                         <li class=" inline-block mr-8">
-                            <a href="#">
+                            <a href="{% url 'index' %}">
                                 <button class="text-xl">Home</button>
                             </a>
                         </li>
 
                         <li class=" inline-block mr-8">
-                            <a href="#"></a>
+                            <a href="{% url 'jobpost' %}">
                                 <button class="relative peer text-xl">Job Posts</button>
                             </a>
                         </li>
 
 
                         <li class=" inline-block mr-8">
-                            
-                            <button class="relative peer text-xl">Profile</button>
+                            <a href="{% url 'profile' %}">
+                                <button class="relative peer text-xl">Profile</button>
+                            </a>
                             
                         </li>
 
@@ -84,7 +94,7 @@
                                 <div class="text-lg text-[#397f77] w-fit mx-auto">
 
                                     <span class=" inline-block">
-                                        <a href="#"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Login</h2></a>
+                                        <a href="{% url 'login' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Login</h2></a>
                                     </span>
 
                                     <!-- <span class=" inline-block mx-1">/</span>

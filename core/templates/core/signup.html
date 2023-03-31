@@ -73,10 +73,12 @@
                     </div>
 
           
-                    <h2 class="mt-10 text-center w-full">Already have an account? <a href="#"><b class=" text-[#397f77] hover:underline duration-300">Login</b></a></h2>
+                    <h2 class="mt-10 text-center w-full">Already have an account? <a href="{% url 'login' %}"><b class=" text-[#397f77] hover:underline duration-300">Login</b></a></h2>
 
-
-                    <button  type="button" class="mt-10 text-[#397f77] font-semibold w-full text-center text-xl hover:-translate-x-5 duration-300">&#x2190; Go Back</button>
+                    <a href="{% url 'index' %}">
+                        <button  type="button" class="mt-10 text-[#397f77] font-semibold w-full text-center text-xl hover:-translate-x-5 duration-300">&#x2190; Go Back</button>
+                    </a>
+                    
 
                     
 
