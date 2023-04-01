@@ -30,330 +30,50 @@
 
 
     <div class="flex flex-col justify-center">
+        {% for category in categories %}
+            <h2 class="mx-auto text-3xl pb-5 font-bold text-[#397f77]">{{category.name}} Jobs</h2>
 
-        <h2 class="mx-auto text-3xl pb-5 font-bold text-[#397f77]">Development Jobs</h2>
-
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
-        
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
+            <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
             
-            <div class="w-full ">
-                <div class="group">
+                {% for post in posts %}
+                    {% if post.category.name == category.name %}
+                    <div class="w-full ">
+                        <div class="group">
 
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
+                            <div class="h-[200px] w-full overflow-hidden">
+                            
+                                <img src="{{post.image.url}}" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
+                            </div>
+                
+                            <div class="mt-5 pb-2">
+                                <h2 class="text-xl text-gray-600">{{post.name}}</h2>
+                            </div>
 
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
+                            <div class="h-[2px] w-[40px] bg-gray-600"></div>
 
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
+                    
+
+                            <!-- <div class=" pb-2">
+                                <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
+                            </div> -->
+
+                            <div class="mt-5">
+                                <a href="{% url 'jobdetails' post.id %}">
+                                    <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
+                                </a>
+                                
+                            </div>
+                
+                        </div>
+                
                     </div>
-        
-                </div>
-        
+                    {% endif %}
+                {% endfor %}
+
             </div>
+        {% endfor %}
 
-            <div class="w-full ">
-                <div class="group">
 
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>          
-
-        </div>
-      
-        <h2 class="mx-auto text-3xl py-5 mt-10 font-bold text-[#397f77]">Banking Jobs</h2>
-
-        <div class="grid lg:grid-cols-3  md:grid-cols-2 sm:grid-cols-1 gap-5">
-        
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
-            
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
-
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>          
-
-        </div>
-
-        <h2 class="mx-auto text-3xl py-5  mt-10 font-bold text-[#397f77]">Remote Jobs</h2>
-
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
-        
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
-            
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
-
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>          
-
-        </div>
-
-        <h2 class="mx-auto text-3xl py-5  mt-10 font-bold text-[#397f77]">Odd Jobs</h2>
-
-        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
-        
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
-            
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>
-
-            <div class="w-full ">
-                <div class="group">
-
-                    <div class="h-[200px] w-full overflow-hidden">
-                        <img src="https://cdn-cashy-static-assets.lucidchart.com/marketing/blog/2020Q3/sales/how-to-do-a-product-demo.png" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
-                    </div>
-        
-                    <div class="mt-5 pb-2">
-                        <h2 class="text-xl text-gray-600">Post Name</h2>
-                    </div>
-        
-                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
-
-                    <div class=" pb-2">
-                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
-                    </div>
-
-                    <div class="mt-5">
-                        <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
-                    </div>
-        
-                </div>
-        
-            </div>          
-
-        </div>
 
 
     </div>
