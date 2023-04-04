@@ -16,13 +16,16 @@ Including another URLconf
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from core.views import index,login,signup,jobpost,profile,jobdetails
+from core.views import index,login,signup,jobpost,profile,jobdetails,logout_view
+from core.forms import LoginForm
 
 urlpatterns = [
     path('',index,name='index'),
-    path('login/',login,name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='core/login.html', authentication_form=LoginForm), name='login'),
+    path('logout/', logout_view, name='logout'),
     path('signup/',signup,name='signup'),
     path('jobs/',jobpost,name='jobpost'),
     path('profile/',profile,name='profile'),

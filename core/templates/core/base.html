@@ -42,13 +42,15 @@
                             </a>
                         </li>
 
-
-                        <li class=" inline-block mr-8">
-                            <a href="{% url 'profile' %}">
-                                <button class="relative peer text-xl">Profile</button>
-                            </a>
-                            
-                        </li>
+                        {% if request.user.is_authenticated %}
+                            <li class=" inline-block mr-8">
+                                <a href="{% url 'profile' %}">
+                                    <button class="relative peer text-xl">Profile</button>
+                                </a>
+                                
+                            </li>
+                        {% endif %}
+                   
 
                         
                     </ul>
@@ -59,49 +61,15 @@
                     <div class=" h-fit my-auto lg:block md:hidden sm:hidden">
                         <span class=" inline-block align-middle w-full ml-10 mr-auto">
 
-                                <!-- <div class="w-fit">
-                                    <div class=" relative peer">
-
-
-                                        <div class="inline-block align-middle w-[40px] h-[40px] mx-auto rounded-full">
-                                            <img src="#" alt="" class=" h-full w-full rounded-full object-cover"/>
-                                        </div>
-
-                                    </div>
-
-                            
-                                
-                                    <div class="absolute hidden peer-hover:block hover:block bg-white drop-shadow-lg text-lg py-2 rounded-2xl">
-                                            <ul>
-                                            <li class="block hover:bg-[#18debb] hover:bg-opacity-30">
-                                                <a href="#"><h2 class="px-5 py-3">Profile</h2></a>
-                                            </li>
-                                            <li class=" block hover:bg-[#18debb] hover:bg-opacity-30">
-                                                <a href="#"><h2 class="px-5 py-3">Account</h2></a>
-                                            </li>
-
-                                            <li class=" block  hover:bg-[#18debb] hover:bg-opacity-30">
-                                                <button class="px-5 py-3">Logout</button>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                
-                                </div> -->
-
-                                
-
                                 <div class="text-lg text-[#397f77] w-fit mx-auto">
 
                                     <span class=" inline-block">
+                                        {% if request.user.is_authenticated %}
+                                        <a href="{% url 'logout' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Logout</h2></a>
+                                        {% else %}
                                         <a href="{% url 'login' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Login</h2></a>
+                                        {% endif %}
                                     </span>
-
-                                    <!-- <span class=" inline-block mx-1">/</span>
-
-                                    <span class=" inline-block">
-                                        <a href="#"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Sign Up</h2></a>
-                                    </span> -->
 
                                 </div>
                 

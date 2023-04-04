@@ -1,33 +1,74 @@
-from django.shortcuts import render,get_object_or_404
+from django.shortcuts import render,get_object_or_404,redirect
+from django.contrib.auth import logout
 
 from .models import Category,Post
 
-
+from .forms import SignupForm
 # Create your views here.
+
+def UserLoggedIn(request):
+    if request.user.is_authenticated == True:
+        username = request.user.username
+    else:
+        username = None
+    return username
 
 def index(request):
     categories = Category.objects.all()
     posts = Post.objects.all()
-    # development_posts = Post.objects.filter(category=categories[1].pk)[0:3]
-    # bank_posts = Post.objects.filter(category=categories[0].pk)[0:3]
+
     return render(request,'core/index.html',{
         'posts' : posts,
-        # 'development_posts': development_posts,
-        # 'bank_posts' : bank_posts,
         'categories' : categories
     })
 
 def login(request):
-    return render(request,'core/login.html')
+    username = UserLoggedIn(request)
+    if username != None:
+        return redirect('/')
+    else :
+        return render(request,'core/login.html')
+
+def logout_view(request):
+    username = UserLoggedIn(request)
+    if username != None:
+        logout(request)
+        return redirect('/')
+    else :
+        return redirect('/')
+
 
 def signup(request):
-    return render(request,'core/signup.html')
+    username = UserLoggedIn(request)
+    if username != None:
+    
+        return redirect('/')
+    else :
+        if request.method == 'POST':
+            form = SignupForm(request.POST)
+
+            if form.is_valid():
+                form.save()
+
+                return redirect('/login/')
+        else:
+            form = SignupForm()
+
+            return render(request,'core/signup.html',{
+                'form':form
+            })
+   
 
 def jobpost(request):
     return render(request,'core/jobpost.html')
 
 def profile(request):
-    return render(request,'core/profile.html')
+    username = UserLoggedIn(request)
+    if username != None:
+        
+        return render(request,'core/profile.html')
+    else :
+        return redirect('/')
 
 def jobdetails(request,pk):
     job = get_object_or_404(Post,pk=pk)

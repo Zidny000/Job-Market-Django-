@@ -1,29 +1,29 @@
 {% extends 'core/base.html' %}
 
 {% block content %}
-<div>
+<div >
 
 
-    <div>
+    <div >
 
-    
-        <div class="w-full mb-10">
-            <h2 class="w-full border-b-2 border-b-gray-200 text-2xl text-gray-600 font-semibold pb-3"></h2>
-        </div>
 
 
         <form  class="lg:w-2/3 md:w-5/6 sm:w-full mx-auto">
+            
+            <div class="w-full mb-10 mt-[100px]">
+                <h2 class="w-full border-b-2 border-b-[#397f77] text-2xl text-[#397f77] font-semibold pb-3">Personal Infromation</h2>
+            </div>
 
             <div class="w-fit mx-auto mb-10">
                 <!-- <img src="https://img.icons8.com/material/200/397f77/user-male-circle--v1.png" alt="" class=" opacity-50" />  -->
-                <div class=" w-[200px] h-[200px] rounded-full mx-auto">
+                <!-- <div class=" w-[200px] h-[200px] rounded-full mx-auto">
 
                     <img src="https://img.icons8.com/material/200/397f77/user-male-circle--v1.png" alt="" class=" h-full w-full rounded-full object-cover" />
 
-                </div>
+                </div> -->
 
 
-
+<!-- 
                 <div class="w-fit mx-auto">
                 
 
@@ -36,16 +36,16 @@
                     </button>
 
                     <input type="file" id="profile-photo-upload" class="hidden" accept="image/*" />
-                </div>
+                </div> -->
             </div>
 
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 mb-5">
              
 
                 <div class="mb-5">
-                    <label htmlFor="name" class="block text-lg text-gray-600 font-semibold mb-2">
-                        Name*
-                    </label>
+                    <!-- <label htmlFor="name" class="block text-lg text-gray-600 font-semibold mb-2">
+                        Name
+                    </label> -->
 
                     <input
                         type="text"
@@ -53,7 +53,8 @@
                         id="name"
                         class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]"
                         required
-                        value="Name"
+                        value="{{request.user.username}}"
+                        disabled
 
                     />
                 </div>
@@ -61,9 +62,9 @@
           
 
                 <div class="mb-5">
-                    <label htmlFor="c-name" class="block text-lg text-gray-600 font-semibold mb-2">
-                        Company Name*
-                    </label>
+                    <!-- <label htmlFor="c-name" class="block text-lg text-gray-600 font-semibold mb-2">
+                        Email
+                    </label> -->
 
                     <input
                         type="text"
@@ -71,43 +72,23 @@
                         id="c-name"
                         class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]"
                         required
-                        value="Company Name"
+                        value="{{request.user.email}}"
+                        disabled
                         
                     />
                 </div>
             </div>
 
 
-            <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5 mb-5">
-
-
-                <div class="mb-5">
-                    <label htmlFor="email" class="block text-lg text-gray-600 font-semibold mb-2">
-                        Email*
-                    </label>
-
-                    <input
-                        type="email"
-                        name="email"
-                        id="email"
-                        class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]"
-                        required
-                        value="Email"
-                     
-                    
-                    />
-                </div>
-
-
-            </div>
 
 
 
-            <div class="w-fit ml-auto my-10">
+
+            <!-- <div class="w-fit ml-auto my-10">
 
                 <button type="submit" class="px-10 py-2 bg-[#397f77] text-white text-lg font-semibold rounded-lg mb-5 hover:bg-[#18debb] duration-300">Update</button>
 
-            </div>
+            </div> -->
         </form>
     </div>
 
@@ -117,13 +98,15 @@
 
     
 
-        <div class="w-full mb-20">
-            <h2 class="w-full border-b-2 border-b-gray-200 text-2xl text-gray-600 font-semibold pb-3">Post Job</h2>
-        </div>
+      
 
 
 
         <form  class="lg:w-2/3 md:w-5/6 sm:w-full mx-auto">
+
+            <div class="w-full mb-10">
+                <h2 class="w-full border-b-2 border-b-[#397f77] text-2xl text-[#397f77]  font-semibold pb-3">Post Job</h2>
+            </div>
 
     
             <div class="mb-5">
