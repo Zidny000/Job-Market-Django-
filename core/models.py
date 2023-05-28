@@ -14,6 +14,7 @@ class Category(models.Model):
         return self.name
 
 class Post(models.Model):
+
     category = models.ForeignKey(Category, related_name='posts', on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.TextField()
@@ -24,3 +25,28 @@ class Post(models.Model):
 
     def __str__(self):
         return self.name
+
+class Cv(models.Model):
+    cv = models.FileField(upload_to ='uploads')
+    job = models.ForeignKey(Post,related_name='cv',on_delete=models.CASCADE)
+ 
+
+    def __str__(self):
+        return self.name 
+
+class JobApplied(models.Model):
+    class Meta:
+
+        verbose_name_plural = 'Job Applies'
+    status = models.CharField(max_length=255)
+    job = models.ForeignKey(Post,related_name='jobApplies',on_delete=models.CASCADE)
+    applied_by = models.ForeignKey(User,related_name='jobApplies',on_delete=models.CASCADE)
+    cv = models.ForeignKey(Cv,related_name="jobApplies",on_delete=models.CASCADE)
+
+
+    def __str__(self):
+        return self.name 
+
+
+
+

@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404,redirect
-from django.contrib.auth import logout
+from django.contrib.auth import authenticate, logout
+from django.http import HttpResponseRedirect
 
 from .models import Category,Post
 
@@ -39,25 +40,27 @@ def logout_view(request):
 
 
 def signup(request):
-    username = UserLoggedIn(request)
-    if username != None:
-    
-        return redirect('/')
-    else :
-        if request.method == 'POST':
-            form = SignupForm(request.POST)
 
-            if form.is_valid():
-                form.save()
-
-                return redirect('/login/')
+    if request.method == 'POST':
+        form = SignupForm(request.POST)
+        
+        if form.is_valid():
+            form.save()
+            
+       
+            return redirect('/login/')
+            
         else:
-            form = SignupForm()
-
-            return render(request,'core/signup.html',{
+            context = {
                 'form':form
-            })
-   
+                }
+            return render(request, 'core/signup.html', context)
+    form = SignupForm()
+    context = {
+            'form':form
+        }
+    return render(request, 'core/signup.html', context)
+
 
 def jobpost(request):
     return render(request,'core/jobpost.html')
@@ -75,5 +78,5 @@ def jobdetails(request,pk):
     related_jobs = Post.objects.filter(category=job.category).exclude(pk=pk)[0:3]
     return render(request,'core/jobdetails.html',{
         'job':job,
-        'related_items':related_items
+        'related_items':related_jobs
     })
