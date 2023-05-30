@@ -1,0 +1,66 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+
+<div class="animate-crossfade mx-10 pt-52 flex flex-col justify-center ">
+    <div class="mb-20  flex  justify-center  ">
+        <form action="." method="GET">
+            <div class=" w-[500px] grid grid-cols-5 bg-gray-50 py-2 px-3 rounded-full shadow-[0_1px_20px_1px_rgba(0,0,0,0.5)]">
+          
+                <div class="col-span-4">
+                    {{form.search_query}}
+                </div>
+        
+                <div class=" col-span-1">
+                    <button type="submit" class=" pl-6 py-1" >
+                        <img src="https://img.icons8.com/ios-glyphs/30/397f77/search--v1.png" alt="search-icon" />
+                    </button>
+                </div>
+            </div>
+        </form>
+ 
+    </div>
+
+
+    
+
+
+    <div class="flex flex-col justify-center">
+        <div class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-5">
+            {% for post in posts %}
+            <div class="w-full ">
+                <div class="group">
+
+                    <div class="h-[200px] w-full overflow-hidden">
+                    
+                        <img src="{{post.image.url}}" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
+                    </div>
+        
+                    <div class="mt-5 pb-2">
+                        <h2 class="text-xl text-gray-600">{{post.name}}</h2>
+                    </div>
+
+                    <div class="h-[2px] w-[40px] bg-gray-600"></div>
+
+            
+
+                    <!-- <div class=" pb-2">
+                        <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
+                    </div> -->
+
+                    <div class="mt-5">
+                        <a href="{% url 'jobdetails' post.id %}">
+                            <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
+                        </a>
+                        
+                    </div>
+        
+                </div>
+        
+            </div>
+            {% endfor %}
+        </div>
+       
+    </div>
+</div>
+{% endblock %}

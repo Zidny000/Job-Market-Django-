@@ -25,8 +25,13 @@
 
                     <p class="lg:text-lg md:text-lg sm:text-base text-gray-600 mt-10">{{job.description}}</p>
                 </div>
-
-                <button class="mt-5 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">Attach CV</button>
+                <form method="POST" action="{% url 'upload_document' %}" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <!-- <input type="hidden" name="job_id" value="{{ job.id }}"> -->
+                    <button class="mt-5 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded" type="submit">Attach CV</button>
+                </form>
+                <!-- <button class="mt-5 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"></button> -->
 
             </div>
 

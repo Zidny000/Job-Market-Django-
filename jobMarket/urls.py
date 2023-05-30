@@ -19,10 +19,11 @@ from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from django.urls import path
 
-from core.views import index,login,signup,jobpost,profile,jobdetails,logout_view
-from core.forms import LoginForm
+from core.views import index,login,signup,jobpost,profile,jobdetails,logout_view,post_search,delete_post,upload_document,job_cv,fetch_document
+from core.forms import LoginForm, SendEmail, ConfirmPassword,PasswordChange
 
 urlpatterns = [
+    # Basic Routes
     path('',index,name='index'),
     path('login/', auth_views.LoginView.as_view(template_name='core/login.html', authentication_form=LoginForm), name='login'),
     path('logout/', logout_view, name='logout'),
@@ -31,9 +32,19 @@ urlpatterns = [
     path('profile/',profile,name='profile'),
     path('job/<int:pk>/',jobdetails,name='jobdetails'),
     path('admin/', admin.site.urls),
-
-    path('password_reset/',auth_views.PasswordResetView.as_view(template_name='core/password_reset_form.html'),name='password_reset'),
+    # Reset and Change Password
+    path('password_reset/',auth_views.PasswordResetView.as_view(template_name='core/password_reset_form.html',form_class=SendEmail),name='password_reset'),
     path('password_reset/done/',auth_views.PasswordResetDoneView.as_view(template_name='core/password_reset_done.html'),name='password_reset_done'),
-    path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name='core/password_reset_confirm.html'),name='password_reset_confirm'),
+    path('reset/<uidb64>/<token>/',auth_views.PasswordResetConfirmView.as_view(template_name='core/password_reset_confirm.html',form_class=ConfirmPassword,success_url ='/login'),name='password_reset_confirm'),
     path('reset/done/',auth_views.PasswordResetCompleteView.as_view(template_name='core/password_reset_complete.html'),name='password_reset_complete'),
+    path('change/password/',auth_views.PasswordChangeView.as_view(template_name='core/change_password.html',form_class=PasswordChange,success_url ='/'),name='change_password'),
+    # Search Password
+    path('search/', post_search, name='post_search'),
+    # Delete Post
+    path('post/delete/<int:post_id>/', delete_post, name='delete_post'),
+    # Post Cv
+    path('upload/', upload_document, name='upload_document'),
+    # Get Cv
+    path('cv/<int:pk>', job_cv, name='job_cv'),
+    path('fetch/', fetch_document, name='fetch_document'),
 ] + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

@@ -81,8 +81,12 @@
 
 
 
+         
+         
+               
 
-
+         
+            
 
             <!-- <div class="w-fit ml-auto my-10">
 
@@ -90,46 +94,40 @@
 
             </div> -->
         </form>
+        <div class="lg:w-2/3 md:w-5/6 sm:w-full mx-auto">
+            <a href="{% url 'change_password' %}">
+                <button class="px-10 py-2 bg-[#397f77] text-white text-lg font-semibold rounded-lg mb-5 hover:bg-[#18debb] duration-300">Change Password</button>
+            </a>
+        </div>
+       
     </div>
 
 
 
     <div class="my-10">
 
-    
+        <form method="POST" enctype="multipart/form-data" class="lg:w-2/3 md:w-5/6 sm:w-full mx-auto">
 
-      
-
-
-
-        <form  class="lg:w-2/3 md:w-5/6 sm:w-full mx-auto">
-
+         
+            {% csrf_token %}
             <div class="w-full mb-10">
                 <h2 class="w-full border-b-2 border-b-[#397f77] text-2xl text-[#397f77]  font-semibold pb-3">Post Job</h2>
             </div>
-
+            
+            {{form.as_p}}
     
-            <div class="mb-5">
+        <!-- <div class="mb-5">
                 <label htmlFor="title" class="block text-lg text-gray-600 font-semibold mb-2">Title</label>
 
                 <input type="text" name="title" id="title" class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]" />
+                {{form.name}}
             </div>
 
             <div class="w-full md:w-1/3 p mb-6 md:mb-0">
                 <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-state">
                   Category
                 </label>
-                <div class="relative">
-                  <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
-                    <option>Development</option>
-                    <option>Bank</option>
-                    <option>Remote</option>
-                    <option>Odd</option>
-                  </select>
-                  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                  </div>
-                </div>
+          ]     {{form.category}}
             </div>
 
 
@@ -138,25 +136,34 @@
                 <label htmlFor="salary" class="block text-lg text-gray-600 font-semibold mb-2">Salary</label>
 
                 <input min="0" type="number" name="salary" id="salary" class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]" />
-
+                {{form.salary}}
             </div>
 
         
 
             <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5">
 
-             
-
                 <div class="mb-5">
                     <label htmlFor="description" class="block text-lg text-gray-600 font-semibold mb-2">Description</label>
 
                     <textarea type="text" name="description" id="description" class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]"  ></textarea>
+                    {{form.description}}
                 </div>
 
 
             </div>
 
-          
+            <div class="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-5">
+
+                <div class="mb-5">
+                    <label htmlFor="image" class="block text-lg text-gray-600 font-semibold mb-2">Image</label>
+
+                    <textarea type="text" name="description" id="description" class=" bg-transparent w-full px-3 py-2 border-[1px] border-gray-300 focus:outline-none focus:border-[#397f77]"  ></textarea>
+                    {{form.image}}
+                </div>
+
+
+            </div> -->
 
             <div class="w-fit ml-auto my-10">
 
@@ -165,6 +172,68 @@
             </div>
 
         </form>
+
+    </div>
+
+    <div class="my-10">
+           
+        <div class="w-full mb-10">
+            <h2 class="w-full border-b-2 border-b-[#397f77] text-2xl text-[#397f77]  font-semibold pb-3">My Job Posts</h2>
+        </div>
+        
+        
+        <div>
+
+            <div class="grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-5">
+    
+                {% for post in posts %}
+                <div class="w-full ">
+                    <div class="group">
+    
+                        <div class="h-[200px] w-full overflow-hidden">
+                        
+                            <img src="{{post.image.url}}" alt="" class="h-full w-full object-cover group-hover:scale-110 duration-500 " />
+                        </div>
+            
+                        <div class="mt-5 pb-2">
+                            <h2 class="text-xl text-gray-600">{{post.name}}</h2>
+                        </div>
+    
+                        <div class="h-[2px] w-[40px] bg-gray-600"></div>
+    
+                
+    
+                        <!-- <div class=" pb-2">
+                            <p class="text-sm text-gray-600">In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying/p>
+                        </div> -->
+    
+                        <div class="mt-5 ">
+                            <a href="{% url 'jobdetails' post.id %}">
+                                <button class="bg-[#397f77] px-10 py-3 w-full text-white hover:bg-[#18debb] duration-500 opacity-100">Details</button>
+                            </a>
+
+                            <a href="{% url 'job_cv' post.id %}">
+                                <button class="bg-[#397f77] px-10 py-3 w-full mt-1 text-white hover:bg-[#18debb] duration-500 opacity-100">CV for this Post</button>
+                            </a>
+
+                            <form method="post" action="{% url 'delete_post' post.id %}">
+                                {% csrf_token %}
+                                <button class="bg-[#D10000] px-10 py-3 w-full mt-1 text-white hover:bg-[#ff0000] duration-500 opacity-100">Delete</button>
+                            </form>
+
+                   
+                            
+                        </div>
+            
+                    </div>
+            
+                </div>
+                {% endfor %}
+                    
+    
+            </div>
+    
+        </div>
 
     </div>
 </div>

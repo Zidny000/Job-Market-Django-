@@ -27,12 +27,8 @@ class Post(models.Model):
         return self.name
 
 class Cv(models.Model):
-    cv = models.FileField(upload_to ='uploads')
-    job = models.ForeignKey(Post,related_name='cv',on_delete=models.CASCADE)
- 
-
-    def __str__(self):
-        return self.name 
+    cv = models.FileField(upload_to ='uploads/')
+    job = models.ForeignKey(Post,related_name='cv',on_delete=models.CASCADE,null=True)
 
 class JobApplied(models.Model):
     class Meta:

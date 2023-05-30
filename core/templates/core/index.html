@@ -4,17 +4,11 @@
 
 <div class="animate-crossfade lg:w-2/3 md:w-5/6 sm:w-5/6 mx-auto pt-52 flex flex-col justify-center ">
     <div class="mb-20  flex  justify-center  ">
-        <form action="">
+        <form action="/search/" method="GET">
             <div class=" w-[500px] grid grid-cols-5 bg-gray-50 py-2 px-3 rounded-full shadow-[0_1px_20px_1px_rgba(0,0,0,0.5)]">
           
-            
                 <div class="col-span-4">
-                    <input
-                        type="text"
-                        placeholder="Search Projects"
-                        class="px-3 py-1 bg-gray-50 w-full border-0  border-r-gray-300 border-r-2 focus:border-transparent focus:border-r-gray-300 focus:ring-0 outline-transparent placeholder:text-[#397f77]"
-        
-                    />
+                    {{form.search_query}}
                 </div>
         
                 <div class=" col-span-1">
