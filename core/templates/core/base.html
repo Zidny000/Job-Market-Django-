@@ -68,7 +68,11 @@
                                         {% if request.user.is_authenticated %}
                                         <a href="{% url 'logout' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Logout</h2></a>
                                         {% else %}
-                                        <a href="{% url 'login' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Login</h2></a>
+                                        <div class="d-flex" >
+                                            <a href="{% url 'login' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Login</h2></a>
+                                        <!-- <a href="{% url 'signup' %}"><h2 class="hover:bg-[#18debb] hover:text-white duration-300 p-1 rounded-xl">Signup</h2></a> -->
+                                        </div>
+                                        
                                         {% endif %}
                                     </span>
 
